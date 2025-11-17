@@ -1,0 +1,12 @@
+# gerenciamento/requirements.txt
+
+
+
+Flask==3.0.3
+Flask-SQLAlchemy==3.1.1
+Flask-Migrate==4.0.7
+flask-restx
+flasgger==0.9.7.1
+requests==2.32.3
+Flask-Cors
+flask_swagger_ui

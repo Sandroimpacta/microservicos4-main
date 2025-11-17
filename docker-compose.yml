@@ -1,0 +1,45 @@
+# version: '3.9'
+
+services:
+  app1_gerenciamento:
+    build: ./app1_gerenciamento
+    container_name: gerenciamento_service
+    ports:
+      - "5000:5000"
+    working_dir: /app
+    volumes:
+      - ./app1_gerenciamento:/app
+      #- ./app1_gerenciamento/db:/app/db   # volume persistente
+    environment:
+      - FLASK_ENV=development
+    command: python run.py
+    restart: always
+
+  app2_atividades:
+    build: ./app2_atividades
+    container_name: atividades_service
+    ports:
+      - "5002:5002"
+    working_dir: /app
+    volumes:
+      - ./app2_atividades:/app
+      #- ./app2_atividades/db:/app/db       # volume persistente
+    environment:
+      - FLASK_ENV=development
+    command: python run.py
+    restart: always
+
+  app3_reservas:
+    build: ./app3_reservas
+    container_name: reservas_service
+    ports:
+      - "5001:5001"
+    working_dir: /app
+    volumes:
+      - ./app3_reservas:/app
+      #- ./app3_reservas/db:/app/db         # volume persistente
+    environment:
+      - FLASK_ENV=development
+    command: python run.py
+    restart: always
+
